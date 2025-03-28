@@ -10,7 +10,7 @@ function Cart() {
   return (
     <>
       <h1>Your Cart</h1>
-      <button onClick={() => navigate(-1)}>Go Back</button>
+      <button onClick={() => navigate(-1)}>Continue Shopping</button>
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
@@ -31,7 +31,10 @@ function Cart() {
           ))}
         </tbody>
       </table>
-      <p>Total: {cart.reduce((total, c) => total + c.price, 0)}</p>
+      <p>
+        Total:{' '}
+        {Math.round(cart.reduce((total, c) => total + c.price, 0) * 100) / 100}
+      </p>
     </>
   );
 }

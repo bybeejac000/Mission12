@@ -20,11 +20,25 @@ function App() {
               path="/"
               element={
                 <>
-                  <Categories
-                    selectedCategories={selectedCategories}
-                    onCheckBoxChange={setSelectedCategories}
-                  />
-                  <BooksList selectedCategories={selectedCategories} />
+                  <div className="container">
+                    <div className="row justify-content-end">
+                      <div className="col-md-12 col-sm-12">
+                        <Categories
+                          selectedCategories={selectedCategories}
+                          onCheckBoxChange={setSelectedCategories}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <br></br>
+                  <br></br>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-12 col-sm-12">
+                        <BooksList selectedCategories={selectedCategories} />
+                      </div>
+                    </div>
+                  </div>
                 </>
               }
             />
