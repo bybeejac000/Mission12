@@ -485,3 +485,4 @@ C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\refint\Mission_1
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\Mission_11.pdb
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\Mission_11.genruntimeconfig.cache
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\ref\Mission_11.dll
+C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\Mission_11.sourcelink.json

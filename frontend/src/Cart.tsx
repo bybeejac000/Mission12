@@ -4,9 +4,10 @@ import { cart } from './types/cart';
 import { useState } from 'react';
 
 function Cart() {
+  //define navigation adn cart
   const navigate = useNavigate();
   const { cart } = useCart();
-  console.log(cart);
+
   return (
     <>
       <h1>Your Cart</h1>
@@ -21,6 +22,7 @@ function Cart() {
           </tr>
         </thead>
         <tbody>
+          {/*Go through the carta nd display data */}
           {cart.map((c) => (
             <tr>
               <td>{c.title}</td>
