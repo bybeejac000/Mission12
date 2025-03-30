@@ -478,7 +478,6 @@ C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\staticwebassets\
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Mission_11.props
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Mission_11.props
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\Mission_11.csproj.Up2Date
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\Mission_11.dll
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\refint\Mission_11.dll
@@ -486,3 +485,11 @@ C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\Mission_11.pdb
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\Mission_11.genruntimeconfig.cache
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\ref\Mission_11.dll
 C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\Mission_11.sourcelink.json
+C:\Users\jakeb\Downloads\Mission_12\Mission_11\bin\Debug\net8.0\Bookstore.sqlite
+C:\Users\jakeb\Downloads\Mission_12\Mission_11\bin\Debug\net8.0\publish\web.config
+C:\Users\jakeb\Downloads\Mission_12\Mission_11\bin\Debug\net8.0\publish\appsettings.Development.json
+C:\Users\jakeb\Downloads\Mission_12\Mission_11\bin\Debug\net8.0\publish\appsettings.json
+C:\Users\jakeb\Downloads\Mission_12\Mission_11\bin\Debug\net8.0\publish\Mission_11.deps.json
+C:\Users\jakeb\Downloads\Mission_12\Mission_11\bin\Debug\net8.0\publish\Mission_11.runtimeconfig.json
+C:\Users\jakeb\Downloads\Mission_12\Mission_11\bin\Debug\net8.0\publish\Mission_11.staticwebassets.endpoints.json
+C:\Users\jakeb\Downloads\Mission_12\Mission_11\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
