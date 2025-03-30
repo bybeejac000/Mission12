@@ -35,6 +35,69 @@ namespace Mission_11.Controllers
             });
         }
 
+
+        [HttpPost(Name ="Add")]
+        public ActionResult<Book> AddBook([FromBody] Book book)
+        {
+            if (book == null)
+            {
+                return NotFound();
+            }
+            int id = _context.Books.Max((b) => b.BookId);
+            book.BookId = id+1;
+            _context.Add(book);
+            _context.SaveChanges();
+
+            return Ok(book);
+        }
+
+
+
+        [HttpPut(Name = "Edit")]
+        public IActionResult Edit(int bookId, [FromBody] Book updatedBook)
+        {
+            var existingBook = _context.Books.Find(bookId);
+
+            if (existingBook == null)
+            {
+                return NotFound(new { message = "Book not found." });
+            }
+
+            // Update the book properties
+            existingBook.Author = updatedBook.Author;
+            existingBook.Category = updatedBook.Category;
+            existingBook.Classification = updatedBook.Classification;
+            existingBook.Isbn = updatedBook.Isbn;
+            existingBook.PageCount = updatedBook.PageCount;
+            existingBook.Price = updatedBook.Price;
+            existingBook.Publisher = updatedBook.Publisher;
+            existingBook.Title = updatedBook.Title;
+
+            // Save changes to the database
+            _context.SaveChanges();
+
+            return Ok(existingBook);
+        }
+
+        [HttpDelete(Name = "Delete")]
+        public IActionResult Delete(int id)
+        {
+            var book = _context.Books.Find(id);
+
+            if (book == null)
+            {
+                return NotFound(); // Return 404 if the book is not found
+            }
+
+            _context.Books.Remove(book);
+            _context.SaveChanges(); // Save changes to apply the deletion
+
+            return NoContent(); // Return 204 No Content status after deletion
+        }
+
+
+
+
         // Define GET method to fetch books with pagination and sorting options
         [HttpGet(Name = "GetBooks")]
         public IActionResult GetBooks(int pageHowMany, int pageSize, int sort, [FromQuery] List<string>? category)

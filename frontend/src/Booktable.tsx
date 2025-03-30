@@ -39,6 +39,30 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
     fetchBooks();
   }, [pageSize, pageNum, sort, selectedCategories]); // Re-run effect when dependencies change
 
+  const deleteBook = async (id: number) => {
+    try {
+      const response = await fetch(
+        `https://localhost:7143/api/BookAPI?id=${id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to delete the book');
+      }
+
+      // Optionally, you can navigate away from the page after deletion
+      console.log('Book deleted successfully');
+      // You can add navigation to the list of books or another page:
+      // navigate('/books');
+    } catch (error) {
+      console.error('Error deleting book:', error);
+    }
+  };
   return (
     <>
       {/* Display the total cart value */}
@@ -57,7 +81,6 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
       <table className="table table-striped table-bordered">
         <thead className="table-dark">
           <tr>
-            {/* Table headers */}
             <th>Title</th>
             <th>Author</th>
             <th>Publisher</th>
@@ -66,10 +89,12 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
             <th>Number of Pages</th>
             <th>Price</th>
             <th>Cart</th>
+            <th>Remove</th>
+            <th>Update</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
-          {/* Loop through each book and display its data */}
           {books_data.map((element) => (
             <tr key={element.bookId}>
               <td>{element.title}</td>
@@ -80,7 +105,6 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
               <td>{element.pageCount}</td>
               <td>${element.price.toFixed(2)}</td>
               <td>
-                {/* Button to add book to the cart */}
                 <button
                   onClick={() => {
                     const newCartItem = {
@@ -89,12 +113,39 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
                       price: element.price,
                       origPrice: element.price,
                     } as cart;
-                    addToCart(newCartItem); // Add item to the cart
-                    console.log('Updated Cart:', cart); // Log the updated cart
+                    addToCart(newCartItem);
+                    console.log('Updated Cart:', newCartItem);
                   }}
                   className="btn btn-primary"
                 >
                   Add To Cart
+                </button>
+              </td>
+              <td>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => {
+                    console.log(element.bookId);
+                    deleteBook(element.bookId);
+                  }}
+                >
+                  Remove
+                </button>
+              </td>
+              <td>
+                <button
+                  className="btn btn-warning"
+                  onClick={() => navigate('/addBook')}
+                >
+                  Add
+                </button>
+              </td>
+              <td>
+                <button
+                  className="btn btn-info"
+                  onClick={() => navigate(`/editBook/${element.bookId}`)}
+                >
+                  Edit
                 </button>
               </td>
             </tr>

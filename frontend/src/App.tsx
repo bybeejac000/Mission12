@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS for styli
 import { useState } from 'react'; // Import useState hook from React
 import Cart from './Cart'; // Import Cart component
 import { CartProvider } from './context/CartContext'; // Import CartProvider for managing cart state
+import EditBook from './editBook';
+import AddBook from './addBook';
 
 function App() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]); // State to manage selected categories
@@ -52,6 +54,8 @@ function App() {
             />
             {/* Route for displaying the Cart component */}
             <Route path="/cart" element={<Cart />} />
+            <Route path="/editBook/:id" element={<EditBook />} />
+            <Route path="/addBook" element={<AddBook />} />
           </Routes>
         </Router>
       </CartProvider>

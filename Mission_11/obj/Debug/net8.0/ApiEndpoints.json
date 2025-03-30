@@ -1,6 +1,72 @@
 [
   {
     "ContainingType": "Mission_11.Controllers.BookAPI",
+    "Method": "AddBook",
+    "RelativePath": "api/BookAPI",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "book",
+        "Type": "Mission_11.Models.Book",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mission_11.Models.Book",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Add"
+  },
+  {
+    "ContainingType": "Mission_11.Controllers.BookAPI",
+    "Method": "Edit",
+    "RelativePath": "api/BookAPI",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "updatedBook",
+        "Type": "Mission_11.Models.Book",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Edit"
+  },
+  {
+    "ContainingType": "Mission_11.Controllers.BookAPI",
+    "Method": "Delete",
+    "RelativePath": "api/BookAPI",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Delete"
+  },
+  {
+    "ContainingType": "Mission_11.Controllers.BookAPI",
     "Method": "GetBooks",
     "RelativePath": "api/BookAPI",
     "HttpMethod": "GET",
