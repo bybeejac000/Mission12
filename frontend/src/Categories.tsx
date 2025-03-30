@@ -12,7 +12,7 @@ function Categories({
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await fetch(
-        'https://localhost:7143/api/BookAPI/categories',
+        'https://booksmission-backend.azurewebsites.net/api/BookAPI/categories',
         {
           credentials: 'include',
         }

@@ -10,7 +10,6 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
   const [books_data, setBooks] = useState<book[]>([]); // Store the list of books
   const [pageSize, setPageSize] = useState<number>(10); // Number of books per page
   const [pageNum, setPageNum] = useState<number>(1); // Current page number
-  const [totalItems, setTotalItems] = useState<number>(0); // Total number of books in all pages
   const [totalPages, setTotalPages] = useState<number>(0); // Total number of pages
   const [sort, setSort] = useState<number>(1); // Sort order for books
   const navigate = useNavigate();
@@ -27,12 +26,11 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
 
       // API call to fetch books based on pagination and sorting
       const response = await fetch(
-        `https://localhost:7143/api/BookAPI?pageHowMany=${pageSize}&pageSize=${pageNum}&sort=${sort}${selectedCategories.length ? `&${categoryParams}` : ''}`,
+        `https://booksmission-backend.azurewebsites.net/api/BookAPI?pageHowMany=${pageSize}&pageSize=${pageNum}&sort=${sort}${selectedCategories.length ? `&${categoryParams}` : ''}`,
         { credentials: 'include' }
       );
       const data = await response.json();
       setBooks(data.res); // Set the books data
-      setTotalItems(data.totalRes); // Set total items for pagination
       setTotalPages(Math.ceil(data.totalRes / pageSize)); // Calculate total pages
     };
 
@@ -42,7 +40,7 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
   const deleteBook = async (id: number) => {
     try {
       const response = await fetch(
-        `https://localhost:7143/api/BookAPI?id=${id}`,
+        `https://booksmission-backend.azurewebsites.net/api/BookAPI?id=${id}`,
         {
           method: 'DELETE',
           headers: {

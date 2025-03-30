@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { book } from './types/books';
-import { useParams } from 'react-router-dom';
 
 function AddBook() {
   const [editedBook, setEditedBook] = useState<book>({
@@ -28,7 +27,7 @@ function AddBook() {
     console.log(book);
     try {
       const response = await fetch(
-        `https://localhost:7143/api/BookAPI
+        `https://booksmission-backend.azurewebsites.net/api/BookAPI
 `,
         {
           method: 'POST',

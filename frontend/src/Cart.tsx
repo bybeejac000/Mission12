@@ -1,7 +1,5 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from './context/CartContext';
-import { cart } from './types/cart';
-import { useState } from 'react';
 
 function Cart() {
   //define navigation adn cart

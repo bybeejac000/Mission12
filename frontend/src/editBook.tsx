@@ -31,7 +31,7 @@ function EditBook() {
   const saveBookChanges = async (book: book) => {
     try {
       const response = await fetch(
-        `https://localhost:7143/api/BookAPI?bookId=${book.bookId}`,
+        `https://booksmission-backend.azurewebsites.net/api/BookAPI?bookId=${book.bookId}`,
         {
           method: 'PUT',
           headers: {

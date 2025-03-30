@@ -1,10 +1,4 @@
-import {
-  Children,
-  createContext,
-  ReactNode,
-  useContext,
-  useState,
-} from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 import { cart } from '../types/cart';
 
 // Define the CartContextType interface to outline the structure of the cart context
