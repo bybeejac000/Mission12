@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:3001")
+            policy.WithOrigins("https://lemon-wave-09349cf1e.6.azurestaticapps.net/")
             .AllowCredentials()
             .AllowAnyHeader()
             .AllowAnyMethod();
