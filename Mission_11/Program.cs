@@ -29,9 +29,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
 // Enable CORS policy
-app.UseCors("AllowFrontend");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
