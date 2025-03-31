@@ -18,15 +18,14 @@ builder.Services.AddDbContext<BookstoreContext>(options =>
 // Allow all origins, headers, and methods (open CORS)
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
-        policy =>
-        {
-            policy.WithOrigins("https://lemon-wave-09349cf1e.6.azurestaticapps.net")  // Your frontend's URL
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowCredentials();
-        });
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.AllowAnyOrigin()  // Allow requests from any origin
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
+
 var app = builder.Build();
 
 // Enable CORS policy
