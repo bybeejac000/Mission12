@@ -20,9 +20,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("https://lemon-wave-09349cf1e.6.azurestaticapps.net")  // Allow requests from any origin
+        policy.AllowAnyOrigin()  // Allow requests from any origin
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
