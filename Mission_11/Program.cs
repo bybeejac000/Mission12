@@ -21,13 +21,12 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.AllowAnyOrigin()  // Allow any origin
-                  .AllowAnyHeader()  // Allow any headers
-                  .AllowAnyMethod()  // Allow any HTTP method (GET, POST, PUT, DELETE, etc.)
-                  .AllowCredentials();  // Allow credentials (cookies, etc.)
+            policy.WithOrigins("https://lemon-wave-09349cf1e.6.azurestaticapps.net")  // Your frontend's URL
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials();
         });
 });
-
 var app = builder.Build();
 
 // Enable CORS policy
