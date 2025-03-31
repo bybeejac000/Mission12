@@ -4,33 +4,34 @@ using Mission_11.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Swagger/OpenAPI setup
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add DbContext for SQLite database
 builder.Services.AddDbContext<BookstoreContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
-//Allow react to get to it
+// Allow all origins, headers, and methods (open CORS)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("https://lemon-wave-09349cf1e.6.azurestaticapps.net/")
-            .AllowCredentials()
-            .AllowAnyHeader()
-            .AllowAnyMethod();
+            policy.AllowAnyOrigin()  // Allow any origin
+                  .AllowAnyHeader()  // Allow any headers
+                  .AllowAnyMethod()  // Allow any HTTP method (GET, POST, PUT, DELETE, etc.)
+                  .AllowCredentials();  // Allow credentials (cookies, etc.)
         });
-
 });
 
-
-
 var app = builder.Build();
-app.UseCors("AllowFrontend");  // Add this line to enable CORS policy
+
+// Enable CORS policy
+app.UseCors("AllowFrontend");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -38,9 +39,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-
-
 
 app.UseHttpsRedirection();
 
